@@ -17,8 +17,7 @@ defmodule GithubReposWeb.Router do
   scope "/", GithubReposWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
-    live "/repos", GithubReposLive
+    live "/", GithubReposLive
   end
 
   # Other scopes may use custom stacks.

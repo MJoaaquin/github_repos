@@ -14,22 +14,22 @@ defmodule GithubReposWeb.GithubReposLive do
 
   def render(assigns) do
     ~L"""
-      <h1>Trending Git Repos</h1>
-
-      <form phx-change="filter">
-        <select name="language">
-          <%= options_for_select(languages_options(), @language) %>
-        </select>
-      </form>
-
       <div id="repos">
+        <h1>Git Repos</h1>
+        <form phx-change="filter">
+          <div class="filters">
+            <select name="language">
+              <%= options_for_select(languages_options(), @language) %>
+            </select>
+          </div>
+        </form>
         <div class="repos">
           <ul>
             <%= for repo <- @repos do %>
               <li>
                 <div class="first-line">
                   <div class="group">
-                    <img src="images/terminal.svg">
+                    <img src="images/console.png">
                     <a href="<%= repo.owner_url %>">
                       <%= repo.owner %>
                     </a>
@@ -39,7 +39,7 @@ defmodule GithubReposWeb.GithubReposLive do
                     </a>
                   </div>
                   <button>
-                    <img src="images/star.svg">
+                    <img src="images/star.png">
                     Star
                   </button>
                 </div>
@@ -51,9 +51,6 @@ defmodule GithubReposWeb.GithubReposLive do
                     <span class="license">
                       <%= repo.license %>
                     </span>
-                    <%= if repo.fork do %>
-                      <img src="images/fork.svg">
-                    <% end %>
                   </div>
                   <div class="stars">
                     <%= repo.stars %> stars
@@ -77,7 +74,7 @@ defmodule GithubReposWeb.GithubReposLive do
 
   defp languages_options do
     [
-      "All Languages": "all",
+      "All Languages": "",
       "Python": "python",
       "Elixir": "elixir"
     ]
