@@ -1,5 +1,9 @@
 # GithubRepos
 
+Show and filter by languages github repos (exercise of liveview course)
+
+![screenshot](./assets/static/images/screenshot.png)
+
 To start your Phoenix server:
 
   * Setup the project with `mix setup`
